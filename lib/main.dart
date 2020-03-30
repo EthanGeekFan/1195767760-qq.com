@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:teacher_assistant/screens/home_screen.dart';
 import 'package:teacher_assistant/screens/menu_screen.dart';
+import 'package:teacher_assistant/screens/search_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,14 +10,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Teacher Assistant App',
+      title: 'Teacher Assistant',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: Color(0xff3399FF),
         accentColor: Color(0xFF3399FF),
       ),
       // home: HomeScreen(),
-      home: MyHomePage(),
+      // home: MyHomePage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => MyHomePage(),
+        '/search': (context) => SearchScreen(),
+      },
     );
   }
 }

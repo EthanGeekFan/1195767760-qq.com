@@ -58,7 +58,9 @@ class _HomeScreenState extends State<HomeScreen> {
               icon: Icon(Icons.search),
               iconSize: 30.0,
               // color: Colors.black,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/search');
+              },
             ),
           ],
         ),
