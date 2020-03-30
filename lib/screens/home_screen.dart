@@ -5,6 +5,7 @@ import 'package:teacher_assistant/functions/switch_days.dart';
 import 'package:teacher_assistant/functions/time_machine.dart';
 import 'package:teacher_assistant/models/class.dart';
 import 'package:teacher_assistant/models/subjects.dart';
+import 'package:teacher_assistant/main.dart';
 
 class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
@@ -142,7 +143,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               .length,
                           itemBuilder: (BuildContext context, int index) {
                             Subject subject = gaoer16.schedule[
-                                dates[dateSwitcher.currentIndex].weekday - 1][index];
+                                dates[dateSwitcher.currentIndex].weekday -
+                                    1][index];
                             String name = subject.short;
                             Color bgcolor = subject.color;
                             return Padding(
