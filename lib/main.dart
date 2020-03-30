@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:teacher_assistant/screens/home_screen.dart';
+import 'package:teacher_assistant/screens/menu_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -31,7 +32,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
   int _counter = 0;
-  final double maxSlide = 225.0;
+  final double maxSlide = 300.0;
   final double minDragStartEdge = 50.0;
   final double maxDragStartEdge = 250.0;
   bool _canBeDragged;
@@ -88,13 +89,11 @@ class _MyHomePageState extends State<MyHomePage>
 
   @override
   Widget build(BuildContext context) {
-    var myDrawer = new Container(color: Colors.blue);
-    var myChild = new Container(color: Colors.yellow);
     return GestureDetector(
       onHorizontalDragStart: _onDragStart,
       onHorizontalDragUpdate: _onDragUpdate,
       onHorizontalDragEnd: _onDragEnd,
-      onTap: toggle,
+      // onTap: toggle,
       child: AnimatedBuilder(
         animation: animationController,
         builder: (context, _) {
@@ -102,13 +101,15 @@ class _MyHomePageState extends State<MyHomePage>
           double scale = 1 - (animationController.value * 0.3);
           return Stack(
             children: <Widget>[
-              myDrawer,
+              MenuScreen(),
               Transform(
                 transform: Matrix4.identity()
                   ..translate(slide)
                   ..scale(scale),
                 alignment: Alignment.centerLeft,
-                child: HomeScreen(),
+                child: HomeScreen(
+                  superAnimationController: animationController,
+                ),
               ),
             ],
           );
