@@ -49,7 +49,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   child: Container(
                     decoration: BoxDecoration(
                       // color: bgScheme.accents[selectedIndex],
-                      color: Colors.yellow,
+                      color: Colors.white,
                       borderRadius: BorderRadius.all(
                         Radius.circular(40.0),
                       ),
@@ -66,7 +66,6 @@ class _SearchScreenState extends State<SearchScreen> {
                         horizontal: 23,
                       ),
                       child: TextField(
-                        // decoration: null,
                         style: TextStyle(
                           fontSize: 30,
                         ),

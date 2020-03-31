@@ -8,6 +8,8 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      color: Colors.blue,
+    );
   }
 }

@@ -138,7 +138,7 @@ class _MenuScreenState extends State<MenuScreen> {
                           GestureDetector(
                             onTap: () {
                               setState(() {
-                                navigateTo('/search');
+                                navigateTo('/profile');
                               });
                             },
                             child: Padding(
