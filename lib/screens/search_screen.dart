@@ -56,7 +56,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       boxShadow: [
                         BoxShadow(
                           color: Colors.grey,
-                          offset: Offset(2, 4),
+                          offset: Offset(0, 0),
                           blurRadius: 10,
                         ),
                       ],
