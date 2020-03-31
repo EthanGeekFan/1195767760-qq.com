@@ -1,12 +1,31 @@
 import 'package:flutter/material.dart';
 
 class MenuScreen extends StatefulWidget {
+  MenuScreen({Key key, this.superAnimationController}) : super(key: key);
+  AnimationController superAnimationController;
+
   @override
   _MenuScreenState createState() => _MenuScreenState();
 }
 
 class _MenuScreenState extends State<MenuScreen> {
   String item = "Dashboard";
+
+  final double menuPaddingTop = 20;
+  final double menuPaddingLeft = 20;
+  final double menuTitleFontSize = 40.0;
+  final double listPaddingTop = 50;
+  final double menuItemIconSize = 24;
+  final double menuItemFontSize = 20;
+  final double menuItemPaddingTop = 30;
+  final double iconTextPadding = 30;
+
+  void navigateTo(String routeName) {
+    widget.superAnimationController.isDismissed
+        ? {}
+        : widget.superAnimationController.reverse();
+    Navigator.pushNamed(context, routeName);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +35,8 @@ class _MenuScreenState extends State<MenuScreen> {
         child: Container(
           child: Padding(
             padding: EdgeInsets.only(
-              left: 20,
-              top: 20,
+              left: menuPaddingLeft,
+              top: menuPaddingTop,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -30,14 +49,14 @@ class _MenuScreenState extends State<MenuScreen> {
                       "Schedule",
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 40.0,
+                        fontSize: menuTitleFontSize,
                         fontWeight: FontWeight.bold,
                         letterSpacing: 2.0,
                       ),
                     ),
                     Padding(
                       padding: EdgeInsets.only(
-                        top: 50,
+                        top: listPaddingTop,
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,9 +64,9 @@ class _MenuScreenState extends State<MenuScreen> {
                           GestureDetector(
                             onTap: () {
                               setState(() {
-                                item == "Dashboard"
-                                    ? item = "DashBoard"
-                                    : item = "Dashboard";
+                                widget.superAnimationController.isDismissed
+                                    ? {}
+                                    : widget.superAnimationController.reverse();
                               });
                             },
                             child: Container(
@@ -60,17 +79,17 @@ class _MenuScreenState extends State<MenuScreen> {
                                     Icon(
                                       Icons.dashboard,
                                       color: Colors.white,
-                                      size: 24,
+                                      size: menuItemIconSize,
                                     ),
                                     Padding(
                                       padding: EdgeInsets.only(
-                                        left: 30,
+                                        left: iconTextPadding,
                                       ),
                                       child: Text(
                                         item,
                                         style: TextStyle(
                                           color: Colors.white,
-                                          fontSize: 20.0,
+                                          fontSize: menuItemFontSize,
                                           fontWeight: FontWeight.normal,
                                           letterSpacing: 1.4,
                                         ),
@@ -84,29 +103,64 @@ class _MenuScreenState extends State<MenuScreen> {
                           GestureDetector(
                             onTap: () {
                               setState(() {
-                                print('hello');
+                                navigateTo('/settings');
                               });
                             },
                             child: Padding(
                               padding: EdgeInsets.only(
-                                top: 30,
+                                top: menuItemPaddingTop,
                               ),
                               child: Row(
                                 children: <Widget>[
                                   Icon(
                                     Icons.settings,
                                     color: Colors.white,
-                                    size: 24,
+                                    size: menuItemIconSize,
                                   ),
                                   Padding(
                                     padding: EdgeInsets.only(
-                                      left: 30,
+                                      left: iconTextPadding,
                                     ),
                                     child: Text(
                                       "Settings",
                                       style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 20.0,
+                                        fontSize: menuItemFontSize,
+                                        fontWeight: FontWeight.normal,
+                                        letterSpacing: 1.4,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                navigateTo('/search');
+                              });
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.only(
+                                top: menuItemPaddingTop,
+                              ),
+                              child: Row(
+                                children: <Widget>[
+                                  Icon(
+                                    Icons.person,
+                                    color: Colors.white,
+                                    size: menuItemIconSize,
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(
+                                      left: iconTextPadding,
+                                    ),
+                                    child: Text(
+                                      "Profile",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: menuItemFontSize,
                                         fontWeight: FontWeight.normal,
                                         letterSpacing: 1.4,
                                       ),

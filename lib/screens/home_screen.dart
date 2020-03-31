@@ -105,12 +105,13 @@ class _HomeScreenState extends State<HomeScreen> {
               child: GestureDetector(
                 child: Container(
                   decoration: BoxDecoration(
-                      // color: bgScheme.accents[selectedIndex],
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(20.0),
-                        topRight: Radius.circular(20.0),
-                      )),
+                    // color: bgScheme.accents[selectedIndex],
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20.0),
+                      topRight: Radius.circular(20.0),
+                    ),
+                  ),
                   child: Column(
                     children: <Widget>[
                       Row(

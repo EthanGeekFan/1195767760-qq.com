@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:teacher_assistant/screens/home_screen.dart';
 import 'package:teacher_assistant/screens/menu_screen.dart';
+import 'package:teacher_assistant/screens/profile_screen.dart';
 import 'package:teacher_assistant/screens/search_screen.dart';
+import 'package:teacher_assistant/screens/settings_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -22,6 +24,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => MyHomePage(),
         '/search': (context) => SearchScreen(),
+        '/settings': (context) => SettingsScreen(),
+        '/profile': (context) => ProfileScreen(),
       },
     );
   }
@@ -107,7 +111,9 @@ class _MyHomePageState extends State<MyHomePage>
           double scale = 1 - (animationController.value * 0.3);
           return Stack(
             children: <Widget>[
-              MenuScreen(),
+              MenuScreen(
+                superAnimationController: animationController,
+              ),
               Transform(
                 transform: Matrix4.identity()
                   ..translate(slide)
