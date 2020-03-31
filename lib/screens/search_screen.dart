@@ -10,6 +10,7 @@ class SearchScreen extends StatefulWidget {
 
 class _SearchScreenState extends State<SearchScreen> {
   Future<Album> futureAlbum;
+  TextEditingController _controller = new TextEditingController();
 
   // @override
   // void initState() {
@@ -55,21 +56,66 @@ class _SearchScreenState extends State<SearchScreen> {
                       ),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.grey,
+                          color: Color(0x22000000),
                           offset: Offset(0, 0),
-                          blurRadius: 10,
+                          blurRadius: 8,
                         ),
                       ],
                     ),
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 23,
-                      ),
-                      child: TextField(
-                        style: TextStyle(
-                          fontSize: 30,
+                    child: Stack(
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.only(
+                            left: 25,
+                            right: 60,
+                          ),
+                          child: TextField(
+                            controller: _controller,
+                            decoration: InputDecoration(
+                              hintText: 'Search Here...',
+                              border: InputBorder.none,
+                              // labelText: "Hello",
+                            ),
+                            style: TextStyle(
+                              fontSize: 30,
+                            ),
+                          ),
                         ),
-                      ),
+                        Positioned(
+                          top: 0,
+                          right: 0,
+                          child: GestureDetector(
+                            onTap: () {
+                              print('Searching...');
+                            },
+                            child: Container(
+                              height: 60,
+                              width: 60,
+                              decoration: BoxDecoration(
+                                // color: bgScheme.accents[selectedIndex],
+                                color: Color(0xff809CFA),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(30.0),
+                                ),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Color(0x66809CFA),
+                                    offset: Offset(-4, 0),
+                                    blurRadius: 10,
+                                  ),
+                                ],
+                              ),
+                              child: Center(
+                                child: Icon(
+                                  Icons.search,
+                                  color: Colors.white,
+                                  size: 30,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
